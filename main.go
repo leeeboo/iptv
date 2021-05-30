@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -26,6 +27,7 @@ func channel(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	resp, err := http.Get(u.String())
 
 	if err != nil {
