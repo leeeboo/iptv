@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-alpine:latest
+FROM arm32v7/alpine:3
 
 RUN apk add --update ca-certificates && rm -rf /var/cache/apk/*
 
